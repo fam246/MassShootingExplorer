@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ReactiveBase, DataSearch } from '@appbaseio/reactivesearch';
+import ResultGrid from './components/ResultGrid';
 import colorFont from './colorFont';
 import './App.css';
 class App extends Component {
@@ -7,10 +8,9 @@ class App extends Component {
     return (
       <section className="container">
         <ReactiveBase
-          app="shooting-explorer"
-          credentials="E3Ken1gm5:d3f38d9a-02cd-4cda-b0e6-4d66a3473103"
-          type="react-mass"
-          colorFont={colorFont}
+          app="react-mass"
+          credentials="7UUE2p20u:65f01519-daf3-4736-90cc-2a9322c630fc"
+          theme={colorFont}
         >
           <nav className="navbar">
             <div className="title">Mass Shooting Search</div>
@@ -18,18 +18,19 @@ class App extends Component {
     <div className="flex row-reverse app-container">
         <div className="results-container">
             <DataSearch
-                componentId=""
+                componentId="shooting"
                 filterLabel="Search"
-                dataField={[]}
+                dataField={['Title', 'Date', 'Title.raw','Fatalities','Race','Summary']}
                 placeholder="Search Reports"
                 autosuggest={false}
                 iconPosition="left"
                 URLParams
                 className="data-search-container results-container"
                 innerClass={{
-                    input: '',
+                    input: 'search-input',
                 }}
             />
+            <ResultGrid />
         </div>
     </div>
 
