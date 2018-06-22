@@ -10,16 +10,25 @@ import SearchFilter from './SearchFilter';
    }
 
 
-
+   showButton = () => {
+     const visible = !this.state.visible;
+       this.setState({
+         visible,
+       });
+     
+   }
+   
 
 
 
 
   render() {
     return (
-      <div>
-        
-      </div>
+      <nav className={`navbar ${this.state.visible ? 'active' : ''}`}>
+      <div className="title">Mass Shooting Search</div>
+      <div className="btn toggle-btn" onClick={this.showButton}>Show Filter</div>
+      <SearchFilter {...this.props} visible={this.state.visible} />
+    </nav>
     )
   }
 }
