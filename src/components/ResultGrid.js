@@ -1,7 +1,7 @@
 import React from 'react';
 import {SelectedFilters, ReactiveList} from '@appbaseio/reactivesearch';
 
-const onResultStats = (results, time) => (
+const resultTime = (results, time) => (
 	<div className="flex justify-end">
 		{results} results found in {time}ms
 	</div>
@@ -9,9 +9,22 @@ const onResultStats = (results, time) => (
 
 
 
-const onData = (data) => (
+const responseData = (data) => (
     <div className="result-item" key={data.Date}>
-      {data.Location}/{data.Title}
+      {data.Date}/{data.Location}
+
+<div className="flex justify-center align-center result-card-header">
+
+<a className="link" href="" target="_blank" rel="noopener noreferrer">
+  <div className="flex wrap">
+    
+  <div>{data.Title}</div>
+  
+    
+  </div>
+</a>
+</div>
+<div className="m10-0">{data.Summary}</div>
     </div>
   );
   const ResultGrid = () => (
@@ -20,10 +33,10 @@ const onData = (data) => (
       <ReactiveList
         componentId="resultgrid"
         dataField="Title"
-        onData={onData}
-        onResultStats={onResultStats}
+        onData={responseData}
+        onResultStats={resultTime}
         react={{
-          and: ['shooting'],
+          and: ['Location','Title','shooting'],
         }}
         pagination
         innerClass={{
