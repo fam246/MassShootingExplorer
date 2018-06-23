@@ -1,7 +1,7 @@
 import React from 'react';
 import {SelectedFilters, ReactiveList} from '@appbaseio/reactivesearch';
 
-const onResultTime = (results, time) => (
+const onResultStats = (results, time) => (
 	<div className="flex justify-end">
 		{results} results found in {time}ms
 	</div>
@@ -9,19 +9,19 @@ const onResultTime = (results, time) => (
 
 
 
-const resultData = (data) => (
-    <div className="result-item" key={data.Title}>
-      {data.Date}/{data.Location}
+const onData = (data) => (
+    <div className="result-item" key={data.Date}>
+      {data.Location}/{data.Title}
     </div>
   );
   const ResultGrid = () => (
     <div className="result-list">
       <SelectedFilters className="m1" />
       <ReactiveList
-        componentId="ResultGrid"
+        componentId="resultgrid"
         dataField="Title"
-        onData={resultData}
-        onResultStats={onResultTime}
+        onData={onData}
+        onResultStats={onResultStats}
         react={{
           and: ['shooting'],
         }}
