@@ -30,7 +30,22 @@ import {MultiDropdownList, SingleDropdownRage, RangeSlider,} from '@appbaseio/re
 			/>
 		</div>
 
-
+         <div className="child m10">
+			<RangeSlider
+				componentId="Fatalities"
+				title="Fatalities"
+				dataField="Fatalities"
+				range={{ start: 0, end: 80 }}
+				showHistogram={false}
+				rangeLabels={{
+					start: '0',
+					end: '80',
+				}}
+				innerClass={{
+					label: 'range-label',
+				}}
+			/>
+		</div>
 
 
 

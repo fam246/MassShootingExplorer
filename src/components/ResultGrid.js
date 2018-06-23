@@ -36,7 +36,7 @@ const responseData = (data) => (
         onData={responseData}
         onResultStats={resultTime}
         react={{
-          and: ['Location','Title','shooting'],
+          and: ['Location','Title','Fatalities','shooting'],
         }}
         pagination
         innerClass={{
