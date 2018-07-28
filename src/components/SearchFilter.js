@@ -1,5 +1,6 @@
 import React from 'react';
-import {MultiDropdownList, SingleDropdownRage, RangeSlider,} from '@appbaseio/reactivesearch';
+import PropTypes from 'prop-types';
+import {MultiDropdownList,  RangeSlider,} from '@appbaseio/reactivesearch';
 
  const SearchFilter = ({currentTitles,setTitles,visible}) =>(
 
@@ -59,5 +60,12 @@ import {MultiDropdownList, SingleDropdownRage, RangeSlider,} from '@appbaseio/re
             </div>
         
  );
+
+ SearchFilter.propTypes = {
+	currentTitles: PropTypes.object.isRequired,
+	setTitles:PropTypes.object.isRequired,
+	visible:PropTypes.object.isRequired
+
+  }
 
  export default SearchFilter;
